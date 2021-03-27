@@ -214,7 +214,7 @@ Napisz program, który sprawdzi czy dany tekst jest pangramem.
 W przypadku pozytywnej odpowiedzi program powinien wyświetlić wartość true, w przeciwnym przypadku program powinien wyrzucićwartość false.
 Rozważ różne przypadki i wielkość liter (która nie powinna mieć znaczenia)!!!*/
 
-$sentence = 'No siema czy ja uywam wszyskich liter alfabetu';
+$sentence = 'No siema czy ja uywam wszyskich liter alfabetu??1!';
 $sentence = strtolower($sentence);
 $chars = str_split($sentence);
 $chars = str_replace(' ', '', $chars);
@@ -246,21 +246,34 @@ Następnie ma pobrać AxB liczb i wypisać transpozycję tej macierzy (patrz pon
 Transpozycja oznacza, że wypisujemy najpierw kolumny, a potem wiersze danej macierzy.
 W przypadku sytuacji błędnych program ma wypisać komunikat: BŁĄD i zakończyć działanie.*/
 
-function transpose($array)
+$table = [
+    [1, 2],
+    [3, 4],
+    [5, 6],
+    [7, 8],
+    [9, 0],
+];
+
+$i         = 0;
+$transpose = [];
+while ($columns = array_column($table, $i++))
 {
-    $keys = array_keys($array);
-    return array_map(function ($array) use ($keys) {
-        return array_combine($keys, $array);
-    }, array_map(null, ...array_values($array)));
+    $transpose[] = $columns;
 }
 
-$foo = array(
-    "fooA" => [ "a1", "a2", "a3"],
-    "fooB" => [ "b1", "b2", "b3"],
-    "fooC" => [ "c1", "c2", "c3"]
-);
-
-print_r( transpose( $foo ));
+$table = '<table border="1">';
+$rows = count($transpose);
+for ($i = 0; $i < $rows; $i++){
+    $cols = count($transpose[$i]);
+    $table .= '<tr>';
+    for ($j = 0; $j < $cols; $j++)
+    {
+        $table .= '<td>' . $transpose[$i][$j] . '</td>';
+    }
+    $table .= '</tr>';
+}
+$table .= '</table>';
+echo $table;
 ?>
 
 </body>
