@@ -30,8 +30,7 @@
 
 <?php
 
-if(isset($_POST['submit']))
-{
+if (isset($_POST['submit'])) {
     $operationType = $_POST['operation'];
     $firstNumber = $_POST['firstNumber'];
     $secondNumber = $_POST['secondNumber'];
@@ -40,27 +39,27 @@ if(isset($_POST['submit']))
         switch ($operationType) {
             case 'addition':
                 $result = $firstNumber + $secondNumber;
-                echo ("Wynik dowawania: $result");
+                echo("Wynik dowawania: $result");
                 break;
             case 'subtraction':
                 $result = $firstNumber - $secondNumber;
-                echo ("Wynik odejmowania: $result");
+                echo("Wynik odejmowania: $result");
                 break;
             case 'multiplication':
                 $result = $firstNumber * $secondNumber;
-                echo ("Wynik mnożenia: $result");
+                echo("Wynik mnożenia: $result");
                 break;
             case 'division':
                 if ($secondNumber != 0) {
                     $result = $firstNumber / $secondNumber;
-                    echo ("Wynik dzielenia: $result");
+                    echo("Wynik dzielenia: $result");
                     break;
                 } else {
-                    echo ('Proszę nie dzielić przez 0');
+                    echo('Proszę nie dzielić przez 0');
                 }
         }
     } else {
-        echo ('Podaj liczby!!!');
+        echo('Podaj liczby!!!');
     }
 }
 
